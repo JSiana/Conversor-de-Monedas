@@ -1,1 +1,7 @@
 # Conversor-de-Monedas
+
+APLICACION PARA CONVERTIR DIFERENTES TIPOS DE MONEDAS A OTROS TIPOS DE MONEDAS
+
+--Usando Java e IntellIJ
+
+--Consumiendo APIs
