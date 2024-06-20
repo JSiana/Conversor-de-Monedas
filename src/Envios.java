@@ -3,30 +3,46 @@
 
 import java.util.Scanner;
 
-public class Menu {
+public class Envios {
 
+    public void entradaDeDatos(int opcion){
+        Busqueda busqueda = new Busqueda();
+        switch (opcion){
+            case 1 :
+                {
+                        busqueda.buscaMoneda("USD","ARS");
+                }break;
 
+            case 2:
+                {
+                        busqueda.buscaMoneda("ARS","USD");
+                }break;
+            case 3:
+            {
+                busqueda.buscaMoneda("USD","BRL");
+            }break;
+            case 4:
+            {
+                busqueda.buscaMoneda("BRL","USD");
+            }break;
+            case 5:
+            {
+                busqueda.buscaMoneda("USD","COP");
+            }break;
+            case 6:
+            {
+                busqueda.buscaMoneda("COP","USD");
+            }break;
+            default:
+                System.out.println("Error: La opcion que ingreso no existe");
+            }
+    }
 
-    public final String menu = """
-            1) Dolar -> Peso argentino
-            2) Peso argentino -> Dolar
-            3) Dolar -> Real brasileño
-            4) Real brasileño -> Dolar
-            5) Dolar -> Peso colombiano
-            6) Peso colombiano -> Dolar
-            7) Salir
-            """;
+    public void conversionDeLaCantidad(Double tasa){
+        Busqueda consulta = new Busqueda();
+        Double cantidadConvertida = tasa * 2;
+        System.out.println(cantidadConvertida);
 
-    public String leerOpcionMoneda() {
-        Scanner lectura = new Scanner(System.in);
-        String opcion = lectura.nextLine().toLowerCase();
-        while (!monedasDisponibles.toLowerCase().contains(opcion)) {
-            System.out.println("La opción digitada no está disponible");
-            System.out.println("Elija una opción válida");
-            System.out.println("**********************************************************************************");
-            opcion = lectura.nextLine().toLowerCase();
-        }
-        return opcion.toUpperCase();
     }
         public final String monedasDisponibles = """
                 USD --- Dólar Estadounidense

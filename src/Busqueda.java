@@ -8,24 +8,37 @@ import java.net.http.HttpResponse;
 
 public class Busqueda {
 
-        public Moneda buscaMoneda(String denominacionBase){
-            URI direccion = URI.create("https://v6.exchangerate-api.com/v6/24e34214a672185083580f15/latest/"+denominacionBase);
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(direccion)
-                    .build();
 
+
+        public void buscaMoneda (String monedaBase, String codigoConvertir) {
             try {
+                URI direccion = URI.create(
+                        "https://v6.exchangerate-api.com/v6/24e34214a672185083580f15/pair/"
+                                + monedaBase + "/" + codigoConvertir);
+                HttpClient client = HttpClient.newHttpClient();
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(direccion)
+                        .build();
+
+
                 HttpResponse<String> response = client
                         .send(request, HttpResponse.BodyHandlers.ofString());
-                return new Gson().fromJson(response.body(), Moneda.class);
+
+                String json = response.body();
+                //System.out.println(json);
+
+
+                Gson gson = new Gson();
+
+                Moneda miMoneda = gson.fromJson(json,Moneda.class);
+                System.out.println(miMoneda);
+
+
+
             } catch (Exception e) {
                 throw new RuntimeException("No se pudo realizar la conversión");
             }
 
+
         }
-
-
-
-
 }

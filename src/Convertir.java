@@ -1,43 +1,43 @@
+import com.google.gson.annotations.SerializedName;
+
 import java.time.LocalDateTime;
 
 public class Convertir {
-    private String moneda;
-    private String monedaObetivo;
-
-    private Double cantidadACambiar;
+    @SerializedName("base_code")
+    private String monedaBase;
+    private String monedaCon;
+@SerializedName("conversion_rate")
+    private Double tasa;
     private Double cantidadCambiada;
-    private LocalDateTime info;
 
-    public Convertir(String moneda, String monedaObetivo, Double cantidadACambiar, Double cantidadCambiada) {
-        this.moneda = moneda;
-        this.monedaObetivo = monedaObetivo;
-        this.cantidadACambiar = cantidadACambiar;
-        this.cantidadCambiada = cantidadCambiada;
-        this.info = LocalDateTime.now();
+    public Convertir(String monedaBase, String monedaCon, Double tasa) {
+        this.monedaBase = monedaBase;
+        this.monedaCon = monedaCon;
+        this.tasa = tasa;
     }
 
-    public String getMoneda() {
-        return moneda;
+    public String getMonedaBase() {
+        return monedaBase;
     }
 
-    public void setMoneda(String moneda) {
-        this.moneda = moneda;
+    public void setMonedaBase(String monedaBase) {
+        this.monedaBase = monedaBase;
     }
 
-    public String getMonedaObetivo() {
-        return monedaObetivo;
+    public String getMonedaCon() {
+        return monedaCon;
     }
 
-    public void setMonedaObetivo(String monedaObetivo) {
-        this.monedaObetivo = monedaObetivo;
+    public void setMonedaCon(String monedaCon) {
+        this.monedaCon = monedaCon;
     }
 
-    public Double getCantidadACambiar() {
-        return cantidadACambiar;
+    public Double getTasa() {
+        return tasa;
     }
 
-    public void setCantidadACambiar(Double cantidadACambiar) {
-        this.cantidadACambiar = cantidadACambiar;
+    public void setTasa(Double tasa) {
+        this.tasa = tasa;
     }
 
     public Double getCantidadCambiada() {
@@ -46,13 +46,5 @@ public class Convertir {
 
     public void setCantidadCambiada(Double cantidadCambiada) {
         this.cantidadCambiada = cantidadCambiada;
-    }
-
-    public LocalDateTime getInfo() {
-        return info;
-    }
-
-    public void setInfo(LocalDateTime info) {
-        this.info = info;
     }
 }
