@@ -39,9 +39,10 @@ public class Busqueda {
 
                 Double resultado;
                 resultado = cantidad * miConversion.getTasa();
-
+                System.out.println("************************************");
                 System.out.println(cantidad + " " + monedaBase +" es igual a "+
-                        resultado +" "+codigoConvertir+"\n");
+                        resultado +" "+codigoConvertir);
+                System.out.println("************************************");
 
             } catch (Exception e) {
                 throw new RuntimeException("No se pudo realizar la conversión");

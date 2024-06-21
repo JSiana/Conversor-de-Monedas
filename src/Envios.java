@@ -1,8 +1,3 @@
-
-
-
-import java.util.Scanner;
-
 public class Envios {
 
     public void entradaDeDatos(int opcion, Double cantidad){
@@ -34,21 +29,7 @@ public class Envios {
                 busqueda.buscaMoneda("COP","USD",cantidad);
             }break;
             default:
-                System.out.println("Error: La opcion que ingreso no existe");
+                System.out.println("Error: La opcion que ingreso no existe\n");
             }
     }
-    public void conversionDeLaCantidad(Double cantidad){
-
-
-
-    }
-
-        public final String monedasDisponibles = """
-                USD --- Dólar Estadounidense
-                ARS --- Peso Argentino
-                BRL --- Real Brasileño
-                COP --- Peso Colombiano
-                EUR --- Euro""";
-
-
 }

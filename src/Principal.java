@@ -9,10 +9,13 @@ public class Principal {
         boolean confi = false;
         Scanner entrada = new Scanner(System.in);
 
-        System.out.println("**********************************************************************************\n");
-        System.out.println("Bienvenido(a) al conversor de moneda\n");
+        System.out.println("************************************");
+        System.out.println("Bienvenido(a) al conversor de moneda");
+        System.out.println("************************************\n");
+
         while(confi!=true) {
             System.out.println("Elija una opcion valida");
+            System.out.println("-----------------------");
 
             int opcion;
             String menu = """
@@ -27,29 +30,17 @@ public class Principal {
             System.out.println(menu);
             opcion = entrada.nextInt();
 
-            Envios envios = new Envios();
-
-
-
-            Double cantidad;
-            System.out.println("Escriba la cantidad que desea convertir");
-            cantidad = entrada.nextDouble();
-            if (cantidad!=0){
-
-                envios.entradaDeDatos(opcion,cantidad);
-
-
-            }else{
-                System.out.println("No pudo convertir la cantidad que ingreso\n");
-            }
-
-
             if (opcion == 7) {
-                confi = true;
+                break;
             }
 
-
-
+                Double cantidad;
+                System.out.println("Escriba la cantidad que desea convertir");
+                cantidad = entrada.nextDouble();
+                Envios envios = new Envios();
+                envios.entradaDeDatos(opcion,cantidad);
        }
+        System.out.println("-----------------------------\n");
+        System.out.println("Gracias por usar mi programa");
     }
 }
