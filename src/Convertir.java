@@ -1,20 +1,26 @@
-import com.google.gson.annotations.SerializedName;
-
-import java.time.LocalDateTime;
-
 public class Convertir {
-    @SerializedName("base_code")
+    private String result;
     private String monedaBase;
     private String monedaCon;
-@SerializedName("conversion_rate")
-    private Double tasa;
-    private Double cantidadCambiada;
 
-    public Convertir(String monedaBase, String monedaCon, Double tasa) {
+    private Double tasa;
+
+
+
+    public Convertir(Moneda miMoneda) {
+        this.result = miMoneda.result();
+        this.monedaBase = miMoneda.base_code();
+        this.monedaCon = miMoneda.target_code();
+        this.tasa = miMoneda.conversion_rate();
+    }
+
+    public Convertir(String result, String monedaBase, String monedaCon, Double tasa) {
+        this.result = result;
         this.monedaBase = monedaBase;
         this.monedaCon = monedaCon;
         this.tasa = tasa;
     }
+
 
     public String getMonedaBase() {
         return monedaBase;
@@ -40,11 +46,13 @@ public class Convertir {
         this.tasa = tasa;
     }
 
-    public Double getCantidadCambiada() {
-        return cantidadCambiada;
-    }
-
-    public void setCantidadCambiada(Double cantidadCambiada) {
-        this.cantidadCambiada = cantidadCambiada;
+    @Override
+    public String toString() {
+        return "Convertir{" +
+                "result='" + result + '\'' +
+                ", monedaBase='" + monedaBase + '\'' +
+                ", monedaCon='" + monedaCon + '\'' +
+                ", tasa=" + tasa +
+                '}';
     }
 }

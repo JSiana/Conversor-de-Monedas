@@ -28,20 +28,26 @@ public class Principal {
             opcion = entrada.nextInt();
 
             Envios envios = new Envios();
-            envios.entradaDeDatos(opcion);
+
+
 
             Double cantidad;
             System.out.println("Escriba la cantidad que desea convertir");
             cantidad = entrada.nextDouble();
             if (cantidad!=0){
-                envios.conversionDeLaCantidad(cantidad);
+
+                envios.entradaDeDatos(opcion,cantidad);
+
+
             }else{
                 System.out.println("No pudo convertir la cantidad que ingreso\n");
             }
 
+
             if (opcion == 7) {
                 confi = true;
             }
+
 
 
        }

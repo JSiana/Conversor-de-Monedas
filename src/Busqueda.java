@@ -8,9 +8,8 @@ import java.net.http.HttpResponse;
 
 public class Busqueda {
 
+    public void buscaMoneda (String monedaBase, String codigoConvertir,Double cantidad) {
 
-
-        public void buscaMoneda (String monedaBase, String codigoConvertir) {
             try {
                 URI direccion = URI.create(
                         "https://v6.exchangerate-api.com/v6/24e34214a672185083580f15/pair/"
@@ -31,14 +30,23 @@ public class Busqueda {
                 Gson gson = new Gson();
 
                 Moneda miMoneda = gson.fromJson(json,Moneda.class);
-                System.out.println(miMoneda);
+                //System.out.println(miMoneda);
+
+                Convertir miConversion = new Convertir(miMoneda);
+                //System.out.println(miConversion);
+                //System.out.println(miConversion.getTasa());
 
 
+                Double resultado;
+                resultado = cantidad * miConversion.getTasa();
+
+                System.out.println(cantidad + " " + monedaBase +" es igual a "+
+                        resultado +" "+codigoConvertir+"\n");
 
             } catch (Exception e) {
                 throw new RuntimeException("No se pudo realizar la conversión");
             }
 
+    }
 
-        }
 }
